@@ -20,12 +20,20 @@ app.get('/', (req, res) => {
     res.send("Welcome to fruits website")
 });
 
-
+//all fruits
 app.get('/fruits', (req, res)=>{
     Fruit.find({}, (error, allFruits)=>{
         res.render('index', {fruits: allFruits} );
     });
 });
+
+
+
+//create new fruit
+app.get('/fruits/new',(req,res)=>{
+    res.render('new')
+})
+
 //... and then farther down the file
 app.post('/fruits/', (req, res) => {
     // console.log(req.body.readyToEat)
