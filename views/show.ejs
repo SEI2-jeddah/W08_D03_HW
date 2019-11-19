@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h1>Fruits show page</h1>
+        <ul>
+        	<li>
+        		The <%= fruit.name; %> is <%= fruit.color; %>
+        		It is <%=fruit.readyToEat? '': 'not '%>ready to eat.
+        	</li>
+        <nav>
+            <a href="/fruits/<%=fruit.id; %>/edit">Edit</a>
+            <a href="/fruits">Back to Fruit Index</a>
+        </nav>
+        </ul>
+    </body>
+</html>
