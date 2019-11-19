@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>edit</title>
+</head>
+<body>
+    <h2>Edit fruit</h2>
+  
+    <form action="/api/fruits/edit/<%=fruits._id%>?_method=PUT" method="POST">
+        Name: <input type="text" name="name" value="<%=fruits.name%>"/><br/>
+        Color: <input type="text" name="color" value="<%=fruits.color%>"/><br/>
+        Is Ready To Eat:
+        <input type="checkbox" name="readyToEat"
+            <% if(fruits.readyToEat === true){ %>
+                checked
+            <% } %>
+        />
+        <br/>
+        <input type="submit" name="" value="Submit Changes"/>
+    </form>
+</body>
+</html>
