@@ -7,16 +7,13 @@ const methodeOverriad = require('method-override')
 
 mongoose.connect('mongodb://localhost/', { useNewUrlParser: true, useUnifiedTopology: true }) 
      .then(() => console.log('Mongodb is running'), (err) => console.log(err)) 
- 
- 
+
 app.set('view engine', 'ejs') 
- 
  
 app.use(express.urlencoded({ extended: false })); 
 app.use(express.json()) 
 
 app.use(methodeOverriad('_method')) 
-
  
 app.get('/', (req, res) => { 
     res.send("Welcome to fruits website") 
@@ -27,9 +24,9 @@ app.get('/fruits/new',(req,res)=>{
  }) 
   
 app.post('/fruits/', (req, res) => { 
-  if (req.body.readyToEat === 'on') { //if checked, req.body.readyToEat is set to 'on' 
+  if (req.body.readyToEat === 'on') {  
       req.body.readyToEat = true; 
-   } else { //if not checked, req.body.readyToEat is undefined 
+   } else { 
       req.body.readyToEat = false; 
    } 
    Fruit.create(req.body, (error, createdFruit) => { 
@@ -50,7 +47,7 @@ app.get('/fruits/:id', (req, res) => {
     Fruit.findById(req.params.id, (err, foundFruit) => { 
        res.render('show', { 
           fruit: foundFruit 
-          
+
       }); 
   }); 
 }); 
