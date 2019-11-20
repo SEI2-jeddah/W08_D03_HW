@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+            <nav>
+                    <a href="/fruits/new">Create a New Fruit</a>
+                </nav>
+        <h1>Fruits index page</h1>
+        <ul>
+            <% for(let i = 0; i < fruits.length; i++){ %>
+                <li>
+                    The <%=fruits[i].name; %> is  <%=fruits[i].color; %>.
+                    <% if(fruits[i].readyToEat === true){ %>
+                        It is ready to eat
+                    <% } else { %>
+                        It is not ready to eat
+                    <% } %>
+                </li>
+            <% } %>
+            <li>
+                    The
+                    <a href="/fruits/<%=fruits[i].id; %>">
+                        <%=fruits[i].name; %>
+                    </a>
+                    is  <%=fruits[i].color; %>.
+                    
+                    <% if(fruits[i].readyToEat === true){ %>
+                        It is ready to eat
+                    <% } else { %>
+                        It is not ready to eat
+                    <% } %>
+                </li>
+                <li>
+                        The <a href="/fruits/<%=fruits[i].id; %>"><%=fruits[i].name; %></a> is  <%=fruits[i].color; %>.
+                        <% if(fruits[i].readyToEat === true){ %>
+                            It is ready to eat
+                        <% } else { %>
+                            It is not ready to eat
+                        <% } %>
+                        <form action="/fruits/<%=fruits[i].id; %>?_method=DELETE" method="POST">
+                        <form>
+                            <input type="submit" value="DELETE"/>
+                        </form>
+                    </li>
+                    <a href="/fruits/<%=fruits[i].id; %>/edit">Edit</a>
+        </ul>
+    </body>
+</html>
